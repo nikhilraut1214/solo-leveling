@@ -8,6 +8,20 @@
       "when": 1763372440610,
       "tag": "0000_elite_eternals",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1788675901117,
+      "tag": "0001_organic_leader",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1788675997739,
+      "tag": "0002_solid_joshua_kane",
+      "breakpoints": true
     }
   ]
 }

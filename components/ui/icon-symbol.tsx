@@ -1,30 +1,55 @@
-// Fallback for using MaterialIcons on Android and web.
-
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import { SymbolWeight, SymbolViewProps } from "expo-symbols";
+import { SymbolWeight } from "expo-symbols";
 import { ComponentProps } from "react";
 import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 
-type IconMapping = Record<SymbolViewProps["name"], ComponentProps<typeof MaterialIcons>["name"]>;
-type IconSymbolName = keyof typeof MAPPING;
+export type IconSymbolName =
+  | "house.fill"
+  | "calendar"
+  | "sparkles"
+  | "chart.bar.fill"
+  | "person.crop.circle"
+  | "checkmark.circle.fill"
+  | "plus"
+  | "arrow.clockwise"
+  | "clock"
+  | "flag.fill"
+  | "bolt.fill"
+  | "target"
+  | "chevron.right"
+  | "close"
+  | "settings"
+  | "logout"
+  | "info"
+  | "warning"
+  | "trophy"
+  | "more";
 
-/**
- * Add your SF Symbols to Material Icons mappings here.
- * - see Material Icons in the [Icons Directory](https://icons.expo.fyi).
- * - see SF Symbols in the [SF Symbols](https://developer.apple.com/sf-symbols/) app.
- */
-const MAPPING = {
+type MaterialIconName = ComponentProps<typeof MaterialIcons>["name"];
+
+const MAPPING: Record<IconSymbolName, MaterialIconName> = {
   "house.fill": "home",
-  "paperplane.fill": "send",
-  "chevron.left.forwardslash.chevron.right": "code",
+  calendar: "calendar-today",
+  sparkles: "auto-awesome",
+  "chart.bar.fill": "bar-chart",
+  "person.crop.circle": "account-circle",
+  "checkmark.circle.fill": "check-circle",
+  plus: "add",
+  "arrow.clockwise": "refresh",
+  clock: "schedule",
+  "flag.fill": "flag",
+  "bolt.fill": "bolt",
+  target: "track-changes",
   "chevron.right": "chevron-right",
-} as IconMapping;
+  close: "close",
+  settings: "settings",
+  logout: "logout",
+  info: "info-outline",
+  warning: "warning-amber",
+  trophy: "emoji-events",
+  more: "more-horiz",
+};
 
-/**
- * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
- * This ensures a consistent look across platforms, and optimal resource usage.
- * Icon `name`s are based on SF Symbols and require manual mapping to Material Icons.
- */
 export function IconSymbol({
   name,
   size = 24,
